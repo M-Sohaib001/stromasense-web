@@ -14,6 +14,7 @@ import json
 import torch
 import torch.nn as nn
 import xgboost as xgb
+import transformers
 from torchvision import models as tv_models
 from transformers import ViTForImageClassification
 from ultralytics import YOLO

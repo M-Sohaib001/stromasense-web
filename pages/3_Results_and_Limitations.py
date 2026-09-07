@@ -65,7 +65,7 @@ st.markdown("### Per-class breakdown on BACH")
 st.caption(
     "Classifier-only (bypassing the YOLO gate), patient-split model, n=100 per class."
 )
-per_class = metrics["bach_per_class_accuracy"]
+per_class = {k: v for k, v in raw_per_class.items() if isinstance(v, (int, float))}
 fig = go.Figure(
     go.Bar(
         x=list(per_class.keys()),
