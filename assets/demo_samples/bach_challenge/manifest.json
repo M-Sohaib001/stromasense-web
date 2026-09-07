@@ -1,0 +1,122 @@
+[
+  {
+    "filename": "bach_normal_00.tif",
+    "bach_class": "Normal",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9156,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_normal_01.tif",
+    "bach_class": "Normal",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "classification_only_fallback",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_normal_02.tif",
+    "bach_class": "Normal",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9183,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "classification_only_fallback",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_benign_03.tif",
+    "bach_class": "Benign",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.916,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_benign_04.tif",
+    "bach_class": "Benign",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9147,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_benign_05.tif",
+    "bach_class": "Benign",
+    "true_binary_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "classification_only_fallback",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_in_situ_06.tif",
+    "bach_class": "In Situ",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_in_situ_07.tif",
+    "bach_class": "In Situ",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_in_situ_08.tif",
+    "bach_class": "In Situ",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_invasive_09.tif",
+    "bach_class": "Invasive",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_invasive_10.tif",
+    "bach_class": "Invasive",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  },
+  {
+    "filename": "bach_invasive_11.tif",
+    "bach_class": "Invasive",
+    "true_binary_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "roi_detected_end_to_end": true,
+    "selection_tier": "end_to_end_confident",
+    "source_dataset": "ICIAR2018_BACH"
+  }
+]

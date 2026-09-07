@@ -1,0 +1,12 @@
+streamlit>=1.38
+torch>=2.2
+torchvision>=0.17
+transformers>=4.40,<5
+ultralytics>=8.2
+xgboost>=2.0
+scikit-learn>=1.4
+opencv-python-headless>=4.9
+pillow>=10.2
+numpy>=1.26
+plotly>=5.20
+huggingface_hub>=0.23

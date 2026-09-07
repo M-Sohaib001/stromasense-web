@@ -1,0 +1,41 @@
+{
+  "note": "Single source of truth for every number shown in the app. Edit here, not in individual page files, so numbers can't drift between pages.",
+  "headline": {
+    "breakhis_patient_split": {
+      "accuracy": 0.9471,
+      "mcc": 0.88,
+      "roc_auc": 0.974,
+      "caveat": "Computed across all 7,909 BreaKHis images (train+val+test pooled), not held-out test patients only — this number is not a pure generalization estimate. The clean held-out figure is the crop-level test accuracy: 77.86%."
+    },
+    "bach_zero_shot": {
+      "accuracy": 0.5475,
+      "mcc": 0.1243,
+      "roc_auc": 0.5594
+    }
+  },
+  "bach_per_class_accuracy": {
+    "note": "classifier-only (no YOLO gate) results, patient-split model, n=100 per class",
+    "normal": 0.22,
+    "benign": 0.23,
+    "in_situ": 0.88,
+    "invasive": 0.86
+  },
+  "yolo_detection_rate": {
+    "breakhis_held_out": 1.00,
+    "bach": 0.12
+  },
+  "stain_normalization_sweep": {
+    "note": "10-reference Macenko sweep, original (image-split) model",
+    "single_reference_result": 0.635,
+    "mean_across_10_refs": 0.5835,
+    "min_across_10_refs": 0.49,
+    "max_across_10_refs": 0.6575
+  },
+  "fine_tuning": {
+    "status": "IN PROGRESS — do not display final numbers until verified with buffer time. See ROADMAP.md.",
+    "held_out_bach_accuracy_naive": 0.80,
+    "leakage_risk": "UNRESOLVED — BACH patient IDs not fully recoverable",
+    "breakhis_accuracy_after_naive_finetune": 0.6445,
+    "breakhis_accuracy_before_finetune": 0.9471
+  }
+}

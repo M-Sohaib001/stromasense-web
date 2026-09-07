@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Model weights — pulled from Hugging Face Hub at runtime, never committed
+models/
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.joblib
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# NOTE: assets/sample_images/ should contain only your small, curated
+# gallery images (a dozen or so per class) — these ARE meant to be committed
+# so the deployed app has something to show. Never drop the full BreaKHis
+# or BACH datasets in here; they're gigabytes and carry their own license
+# terms independent of this repo.
