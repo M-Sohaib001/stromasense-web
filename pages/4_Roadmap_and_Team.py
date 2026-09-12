@@ -9,7 +9,8 @@ st.title("Roadmap & Team")
 st.info(
     f"""
 **Working in pathology, digital pathology infrastructure, or histopathology
-research in Pakistan?** The single biggest thing missing from this project
+research in Pakistan?**
+The single biggest thing missing from this project
 is local clinical data. We're looking for a pathology department or research
 group interested in a collaboration structured around mutual benefit — not
 a one-way data request — under proper ethics-committee approval.
@@ -47,12 +48,18 @@ targeted at the specific failure modes we measured:
 
 ### Team
 
-_Add names, roles, and contact links here._
+Muhammad Sohaib - Team Lead + Lead AI/ML Engineer
+Tehreem Ali Khan - Lead Documentation + Support Engineer
+Shahzaib - Lead Full Stack Developer
+
+Mr. Minhal Raza - Project Supervisor and Mentor
+Dr. Ghufran Ahmed - Project Supervisor and Mentor
 
 ### Links
 
-- GitHub: _this repo_
-- Paper: _add IEEE Access link_
-- Contact: {CONTACT_EMAIL} _(also add LinkedIn if you want it here)_
+- GitHub: https://github.com/M-Sohaib001/stromasense-web
+- Paper: In Progress
+- Contact:  -Email: {CONTACT_EMAIL}
+            -LinkedIn: https://www.linkedin.com/in/sohaib-tech
 """
 )
