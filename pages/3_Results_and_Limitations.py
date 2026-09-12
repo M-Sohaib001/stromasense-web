@@ -48,16 +48,17 @@ st.caption("Hover the ⓘ on any metric below if you're not sure what it means."
 h = metrics["headline"]
 col1, col2, col3 = st.columns(3)
 col1.metric("Accuracy", f"{h['breakhis_patient_split']['accuracy']:.1%}",
-            help=METRIC_HELP["accuracy"] + " (BreaKHis, patient-split, in-distribution)")
+            help=METRIC_HELP["accuracy"] + " (BreaKHis, patient-split, in-distribution, "
+                 "pooled across train+val+test — see caveat below)")
 col2.metric("MCC", f"{h['breakhis_patient_split']['mcc']:.2f}", help=METRIC_HELP["mcc"])
 col3.metric("ROC-AUC", f"{h['breakhis_patient_split']['roc_auc']:.3f}", help=METRIC_HELP["roc_auc"])
+if "caveat" in h["breakhis_patient_split"]:
+    st.caption(f"⚠️ {h['breakhis_patient_split']['caveat']}")
 
 st.markdown("**vs. external validation (BACH, zero-shot):**")
 col1, col2, col3 = st.columns(3)
-col1.metric("Accuracy", f"{h['breakhis_patient_split']['accuracy']:.1%}",
-            help=METRIC_HELP["accuracy"] + " (BreaKHis, patient-split, in-distribution)")
-if "caveat" in h["breakhis_patient_split"]:
-    st.caption(f"⚠️ {h['breakhis_patient_split']['caveat']}")
+col1.metric("Accuracy", f"{h['bach_zero_shot']['accuracy']:.1%}",
+            help=METRIC_HELP["accuracy"] + " (BACH, external, zero-shot)")
 col2.metric("MCC", f"{h['bach_zero_shot']['mcc']:.2f}", help=METRIC_HELP["mcc"])
 col3.metric("ROC-AUC", f"{h['bach_zero_shot']['roc_auc']:.3f}", help=METRIC_HELP["roc_auc"])
 
@@ -65,7 +66,7 @@ st.markdown("### Per-class breakdown on BACH")
 st.caption(
     "Classifier-only (bypassing the YOLO gate), patient-split model, n=100 per class."
 )
-per_class = {k: v for k, v in raw_per_class.items() if isinstance(v, (int, float))}
+per_class = {k: v for k, v in metrics["bach_per_class_accuracy"].items() if isinstance(v, (int, float))}
 fig = go.Figure(
     go.Bar(
         x=list(per_class.keys()),
@@ -98,7 +99,7 @@ st.markdown("### YOLO detection rate")
 yolo = metrics["yolo_detection_rate"]
 st.markdown(
     f"- BACH: **{yolo['bach']:.0%}** of images get any detection above threshold\n"
-    f"- BreaKHis held-out: {yolo['breakhis_held_out']}"
+    f"- BreaKHis held-out: **{yolo['breakhis_held_out']:.0%}**"
 )
 
 st.markdown("### Stain normalization — helps, but is not a fix")

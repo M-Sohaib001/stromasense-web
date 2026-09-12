@@ -56,6 +56,8 @@ try:
         st.metric(
             "BreaKHis accuracy (patient-split, in-distribution)",
             f"{metrics['headline']['breakhis_patient_split']['accuracy']:.1%}",
+            help="Pooled across all 7,909 BreaKHis images (train+val+test) — see "
+                 "Results & Limitations for the clean held-out-only figure (77.86%).",
         )
     with col2:
         st.metric(
@@ -74,6 +76,6 @@ except FileNotFoundError:
 
 st.markdown("---")
 st.markdown(
-    "📄 Paper: _add your IEEE Access link_ &nbsp;·&nbsp; "
-    "💻 Code: _add your GitHub link_"
+    "📄 Paper: In Progress; "
+    "💻 Code: https://github.com/M-Sohaib001/stromasense-web"
 )

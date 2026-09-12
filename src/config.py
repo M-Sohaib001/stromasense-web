@@ -73,3 +73,13 @@ DISCLAIMER_TEXT = (
 ASSETS_DIR = "assets"
 SAMPLE_IMAGES_DIR = os.path.join(ASSETS_DIR, "sample_images")
 METRICS_PATH = os.path.join("data", "metrics.json")
+
+# ---------------------------------------------------------------------------
+# Stain normalization
+# ---------------------------------------------------------------------------
+# ONE fixed, deterministic reference image — same rule your notebook's own
+# stain-normalization experiments used: never refit against BACH or any
+# live input, or the test set ends up influencing preprocessing.
+STAIN_REFERENCE_IMAGE = os.path.join(
+    SAMPLE_IMAGES_DIR, "breakhis", "breakhis_benign_40X_00.png"
+)

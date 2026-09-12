@@ -1,12 +1,15 @@
 """Image preprocessing and visualization helpers shared across pages."""
 
+from functools import lru_cache
+
 import numpy as np
 import cv2
+import torchstain
 from PIL import Image, ImageDraw
 import torch
 from torchvision import transforms
 
-from src.config import IMG_SIZE, NORMALIZE_MEAN, NORMALIZE_STD
+from src.config import IMG_SIZE, NORMALIZE_MEAN, NORMALIZE_STD, STAIN_REFERENCE_IMAGE
 
 
 def get_inference_transform() -> transforms.Compose:
@@ -25,11 +28,60 @@ def get_inference_transform() -> transforms.Compose:
     )
 
 
-def pil_to_tensor(image: Image.Image) -> torch.Tensor:
-    """PIL image -> normalized (1, 3, IMG_SIZE, IMG_SIZE) tensor."""
+@lru_cache(maxsize=1)
+def _get_stain_normalizer():
+    """
+    Fits a Macenko normalizer ONCE against the fixed reference image and
+    caches it for the app's lifetime — refitting per-request would be
+    wasteful, and refitting against anything other than the fixed
+    reference would break the "never fit on live/BACH data" rule.
+    """
+    target_bgr = cv2.imread(STAIN_REFERENCE_IMAGE)
+    if target_bgr is None:
+        raise FileNotFoundError(f"Stain reference image not found: {STAIN_REFERENCE_IMAGE}")
+    target_rgb = cv2.cvtColor(target_bgr, cv2.COLOR_BGR2RGB)
+    normalizer = torchstain.normalizers.MacenkoNormalizer(backend="numpy")
+    normalizer.fit(target_rgb)
+    return normalizer
+
+
+def stain_normalize(image: Image.Image) -> tuple[Image.Image, bool]:
+    """
+    Applies Macenko stain normalization toward the fixed reference.
+    Macenko can fail on some images (your own notebook noted this — e.g.
+    mostly-background crops) — on failure, returns the ORIGINAL image
+    unchanged plus False. Never silently drop this; callers should surface
+    it, same as the YOLO "no ROI" case is surfaced rather than hidden.
+    """
+    try:
+        normalizer = _get_stain_normalizer()
+        img_rgb = np.array(image.convert("RGB"))
+        norm_img, _, _ = normalizer.normalize(I=img_rgb, stains=True)
+        norm_img = np.clip(norm_img, 0, 255).astype(np.uint8)
+        return Image.fromarray(norm_img), True
+    except Exception:
+        return image, False
+
+
+def pil_to_tensor(image: Image.Image, apply_stain_norm: bool = False) -> tuple[torch.Tensor, bool]:
+    """
+    PIL image -> normalized (1, 3, IMG_SIZE, IMG_SIZE) tensor.
+    Returns (tensor, stain_normalized) — the caller decides how/whether to
+    surface stain_normalized to the user.
+
+    apply_stain_norm defaults to False: Macenko normalization was only ever
+    validated on BACH (63.5% vs. 54.75% zero-shot baseline). The model was
+    trained on UNNORMALIZED BreaKHis images, and normalizing BreaKHis inputs
+    at inference time has never been measured — it could just as easily hurt
+    in-distribution accuracy as help it. Only pass True from a call site
+    that has actually verified the effect on its own data.
+    """
+    stain_ok = False
+    if apply_stain_norm:
+        image, stain_ok = stain_normalize(image)
     transform = get_inference_transform()
     tensor = transform(image.convert("RGB"))
-    return tensor.unsqueeze(0)
+    return tensor.unsqueeze(0), stain_ok
 
 
 def draw_bbox(image: Image.Image, box: tuple, color=(255, 0, 0), width: int = 4) -> Image.Image:

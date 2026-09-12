@@ -47,9 +47,13 @@ def _run_yolo(yolo_model, image: Image.Image):
     return crop, box, conf
 
 
-def run_pipeline(image: Image.Image, models: dict) -> dict:
+def run_pipeline(image: Image.Image, models: dict, apply_stain_norm: bool = False) -> dict:
     """
     models: the dict returned by src.model_loader.load_all_models().
+
+    apply_stain_norm: only pass True for a caller that has actually verified
+    the effect on its own data (currently: the BACH cross-domain tab).
+    Defaults to False since Macenko was never validated on BreaKHis.
 
     Returns a dict with everything a UI page needs to render one full
     result:
@@ -57,7 +61,7 @@ def run_pipeline(image: Image.Image, models: dict) -> dict:
         predicted_class (str), predicted_confidence (float),
         original_image_with_box (PIL.Image or None),
         gradcam_overlay (PIL.Image), attention_overlay (PIL.Image),
-        warning (str or None)
+        stain_normalized (bool or None), warning (str or None)
     """
     device = models["device"]
     image = image.convert("RGB")
@@ -75,6 +79,7 @@ def run_pipeline(image: Image.Image, models: dict) -> dict:
             "original_image_with_box": None,
             "gradcam_overlay": None,
             "attention_overlay": None,
+            "stain_normalized": None,
             "inference_time_seconds": time.perf_counter() - start_time,
             "warning": (
                 "No region of interest detected above the confidence "
@@ -84,7 +89,8 @@ def run_pipeline(image: Image.Image, models: dict) -> dict:
             ),
         }
 
-    input_tensor = pil_to_tensor(crop).to(device)
+    input_tensor, stain_normalized = pil_to_tensor(crop, apply_stain_norm=apply_stain_norm)
+    input_tensor = input_tensor.to(device)
 
     # --- Fused features -> XGBoost prediction --------------------------------
     # resnet_features now returns (1, 2048, 1, 1) — flatten(1) instead of the
@@ -135,4 +141,5 @@ def run_pipeline(image: Image.Image, models: dict) -> dict:
         "attention_overlay": attention_overlay,
         "inference_time_seconds": time.perf_counter() - start_time,
         "warning": None,
+        "stain_normalized": stain_normalized,
     }

@@ -72,6 +72,8 @@ train/test split (see "Known limitations" below for why this matters).
 | MCC | {h['breakhis_patient_split']['mcc']:.2f} | {h['bach_zero_shot']['mcc']:.2f} |
 | ROC-AUC | {h['breakhis_patient_split']['roc_auc']:.3f} | {h['bach_zero_shot']['roc_auc']:.3f} |
 
+> {h['breakhis_patient_split'].get('caveat', '')}
+
 **BACH per-class accuracy** (classifier only, bypassing the YOLO gate):
 Normal {per_class['normal']:.0%} · Benign {per_class['benign']:.0%} ·
 In-situ {per_class['in_situ']:.0%} · Invasive {per_class['invasive']:.0%}

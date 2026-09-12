@@ -143,7 +143,7 @@ with tab_crossdomain:
         sample = next(s for s in samples if s["filename"] == choice)
         img_path = os.path.join(SAMPLE_IMAGES_DIR, "bach_challenge", choice)
         image = Image.open(img_path)
-        result = run_pipeline(image, models)
+        result = run_pipeline(image, models, apply_stain_norm=True)
         render_result(image, result, ground_truth=sample.get("ground_truth"))
 
 st.markdown("---")
