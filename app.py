@@ -76,6 +76,6 @@ except FileNotFoundError:
 
 st.markdown("---")
 st.markdown(
-    "📄 Paper: In Progress; "
+    "📄 Paper: In Progress; " \n
     "💻 Code: https://github.com/M-Sohaib001/stromasense-web"
 )

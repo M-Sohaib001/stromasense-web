@@ -48,11 +48,11 @@ targeted at the specific failure modes we measured:
 
 ### Team
 
-Muhammad Sohaib - Team Lead + Lead AI/ML Engineer
-Tehreem Ali Khan - Lead Documentation + Support Engineer
-Shahzaib - Lead Full Stack Developer
+Muhammad Sohaib - Team Lead + Lead AI/ML Engineer \n
+Tehreem Ali Khan - Lead Documentation + Support Engineer \n
+Shahzaib - Lead Full Stack Developer \n\n
 
-Mr. Minhal Raza - Project Supervisor and Mentor
+Mr. Minhal Raza - Project Supervisor and Mentor \n
 Dr. Ghufran Ahmed - Project Supervisor and Mentor
 
 ### Links
