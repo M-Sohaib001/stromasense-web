@@ -2,11 +2,9 @@
   "note": "Single source of truth for every number shown in the app. Edit here, not in individual page files, so numbers can't drift between pages.",
   "headline": {
     "breakhis_patient_split": {
-      "yolo_detection_rate": 0.942,
-      "macenko_normalized_accuracy": 0.914,
-      "unnormalized_accuracy": 0.887,
-      "macro_f1_score": 0.908,
-      "auc_roc": 0.952,
+      "accuracy": 0.9471,
+      "mcc": 0.8801,
+      "roc_auc": 0.9743,
       "caveat": "Computed across all 7,909 BreaKHis images (train+val+test pooled), not held-out test patients only — this number is not a pure generalization estimate. The clean held-out figure is the crop-level test accuracy: 77.86%."
     },
     "bach_zero_shot": {
