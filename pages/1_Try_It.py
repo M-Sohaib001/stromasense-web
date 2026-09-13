@@ -48,7 +48,7 @@ def render_result(image: Image.Image, result: dict, ground_truth: str = None):
     cols = st.columns(4)
 
     with cols[0]:
-        st.image(image, caption="Input", use_container_width=True)
+        st.image(image, caption="Input", width='stretch')
 
     if not result["roi_found"]:
         st.warning(result["warning"])
@@ -59,22 +59,22 @@ def render_result(image: Image.Image, result: dict, ground_truth: str = None):
         st.image(
             result["original_image_with_box"],
             caption=f"YOLO region (conf {result['roi_confidence']:.2f})",
-            use_container_width=True,
+            width='stretch',
         )
     with cols[2]:
         st.image(
             result["gradcam_overlay"],
             caption="Grad-CAM (ResNet50)",
-            help="Highlights which pixels most influenced the ResNet50 branch's decision — brighter = more influence.",
-            use_container_width=True,
+            width='stretch',
         )
+        st.caption("Highlights which pixels most influenced the ResNet50 branch's decision — brighter = more influence.")
     with cols[3]:
         st.image(
             result["attention_overlay"],
             caption="Attention Rollout (ViT)",
-            help="Shows which image regions the Vision Transformer's attention flowed to most strongly across all its layers.",
-            use_container_width=True,
+            width='stretch',
         )
+        st.caption("Shows which image regions the Vision Transformer's attention flowed to most strongly across all its layers.")
 
     st.markdown(f"### Prediction: **{result['predicted_class']}**")
     st.markdown(

@@ -76,7 +76,7 @@ fig = go.Figure(
     )
 )
 fig.update_layout(yaxis=dict(range=[0, 1], tickformat=".0%"), yaxis_title="Accuracy")
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width='stretch')
 
 st.markdown(
     """
