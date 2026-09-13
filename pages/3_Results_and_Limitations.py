@@ -106,8 +106,10 @@ st.markdown("### Stain normalization — helps, but is not a fix")
 sn = metrics["stain_normalization_sweep"]
 st.markdown(
     f"""
-A single Macenko-normalized reference moved accuracy to
-**{sn['single_reference_result']:.1%}**. Across a 10-reference sweep,
+On BACH (classification-only, no YOLO gate), Macenko normalization toward
+a single reference moved accuracy from **{sn['no_normalization_baseline']:.1%}**
+(no normalization) to **{sn['single_reference_result']:.1%}** — a real,
+measured improvement, not a projection. But across a 10-reference sweep,
 results ranged **{sn['min_across_10_refs']:.0%}–{sn['max_across_10_refs']:.0%}**
 (mean {sn['mean_across_10_refs']:.0%}) — a spread almost as large as the
 improvement itself. This isn't an implementation bug; stain normalization

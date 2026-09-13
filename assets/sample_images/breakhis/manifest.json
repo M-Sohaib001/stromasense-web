@@ -1,0 +1,162 @@
+[
+  {
+    "filename": "breakhis_benign_40X_00.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "40X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_benign_40X_01.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "40X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_malignant_40X_02.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "40X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_malignant_40X_03.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "40X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_benign_100X_04.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "100X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_benign_100X_05.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "100X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_malignant_100X_06.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "100X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_malignant_100X_07.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "100X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_benign_200X_08.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "200X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_benign_200X_09.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "200X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_malignant_200X_10.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "200X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_malignant_200X_11.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "200X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_benign_400X_12.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "400X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_benign_400X_13.png",
+    "true_label": "Benign",
+    "predicted_label": "Benign",
+    "confidence": 0.9221,
+    "magnification": "400X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Benign"
+  },
+  {
+    "filename": "breakhis_malignant_400X_14.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "400X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  },
+  {
+    "filename": "breakhis_malignant_400X_15.png",
+    "true_label": "Malignant",
+    "predicted_label": "Malignant",
+    "confidence": 0.9221,
+    "magnification": "400X",
+    "roi_detected": true,
+    "source_dataset": "BreaKHis",
+    "ground_truth": "Malignant"
+  }
+]
